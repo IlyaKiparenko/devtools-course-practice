@@ -1,7 +1,8 @@
 // Copyright 2017 Yashkov Vladislav + Kiparenko Ilya
 
 #include <stdio.h>
-#include <stdlib.h> 
+#include <stdlib.h>
+#include <cstdint>
 #include <limits>
 #include <string>
 #include <vector>
@@ -17,8 +18,8 @@ const char help_message[] =
 bool parseInt(const char* s, int* result) {
   char* err = 0;
   int64_t i = strtol(s, &err, 0);
-  if (!err[0] && 
-      i > std::numeric_limits<int>::min() && 
+  if (!err[0] &&
+      i > std::numeric_limits<int>::min() &&
       i < std::numeric_limits<int>::max()) {
     *result = static_cast<int>(i);
     return true;
