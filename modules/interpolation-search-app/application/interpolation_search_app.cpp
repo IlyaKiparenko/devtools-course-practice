@@ -1,9 +1,9 @@
 // Copyright 2017 Yashkov Vladislav + Kiparenko Ilya
 
 #include <stdio.h>
+#include <limits.h>
 #include <string>
 #include <vector>
-#include <climits>
 #include "include/interpolation_search.h"
 
 using std::string;
@@ -33,7 +33,7 @@ int main(int argc, const char** argv) {
     return 1;
   }
   int length = argc - 1;  // all except first and last
-  vector<int> data(length);
+  std::vector<int> data(length);
 
   for (int i = 0; i < length; i++) {
     int cur = 0;
@@ -48,12 +48,12 @@ int main(int argc, const char** argv) {
   int key = data[length - 1];
   length--;
 
-  bool isSorted = InterpolationSearch::isArrayValid(data, length);
+  bool isSorted = InterpolationSearch::isArrayValid(&data[0], length);
   if (!isSorted) {
     printf("ERROR: Array is unsorted\n");
     return 1;
   }
-  int result = InterpolationSearch::Search(key, data, length);
+  int result = InterpolationSearch::Search(key, &data[0], length);
 
   printf("Result = %i\n", result);
   return 0;
