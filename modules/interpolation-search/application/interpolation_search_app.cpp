@@ -6,16 +6,16 @@
 
 using std::string;
 
-const string help_message =
+const char help_message[] =
   "This is a interpolation search app\n"
   "Use interpolation-search <array> <item>\n"
   "Where <array> is array of integers, and <item> is what you want to find\n";
 
-bool parseInt(const char* s, int& result) {
+bool parseInt(const char* s, int* result) {
   char* err = 0;
-  long int i = strtol(s, &err, 0);
+  int64_t i = strtol(s, &err, 0);
   if (!err[0] && i > INT_MIN && i < INT_MAX) {
-    result = (int)i;
+    *result = static_cast<int>(i);
     return true;
   }
   return false;
@@ -23,7 +23,7 @@ bool parseInt(const char* s, int& result) {
 
 int main(int argc, const char** argv) {
   if (argc == 1) {
-    printf("%s", help_message.c_str());
+    printf("%s", help_message);
     return 0;
   }
   if (argc == 2) {
@@ -35,7 +35,7 @@ int main(int argc, const char** argv) {
 
   for (int i = 0; i < length; i++) {
     int cur = 0;
-    if (parseInt(argv[i + 1], cur)) {
+    if (parseInt(argv[i + 1], &cur)) {
       data[i] = cur;
     } else {
       printf("ERROR: Wrong number format [%s]\n", argv[i + 1]);
