@@ -43,3 +43,51 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Unsorted_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Array is unsorted"
     LABELS "${MODULE}")
+    
+add_test(
+		NAME ${prefix}_Search_Return_Missing
+		COMMAND ${APPLICATION} 1 2 3 4
+)
+set_tests_properties (${prefix}_Search_Return_Missing PROPERTIES
+		PASS_REGULAR_EXPRESSION "-1"
+		LABELS "${MODULE}")
+
+add_test(
+		NAME ${prefix}_Search_Return_Low
+		COMMAND ${APPLICATION} 1 2 3 1
+)
+set_tests_properties (${prefix}_Search_Return_Low PROPERTIES
+		PASS_REGULAR_EXPRESSION "0"
+		LABELS "${MODULE}")
+
+add_test(
+		NAME ${prefix}_Search_Return_Mid
+		COMMAND ${APPLICATION} 1 2 3 2
+)
+set_tests_properties (${prefix}_Search_Return_Mid PROPERTIES
+		PASS_REGULAR_EXPRESSION "1"
+		LABELS "${MODULE}")
+
+add_test(
+		NAME ${prefix}_Search_Return_High
+		COMMAND ${APPLICATION} 1 2 3 3
+)
+set_tests_properties (${prefix}_Search_Return_High PROPERTIES
+		PASS_REGULAR_EXPRESSION "2"
+		LABELS "${MODULE}")
+
+add_test(
+		NAME ${prefix}_Search_Return_Mid_From_Low
+		COMMAND ${APPLICATION} 5 6 7 20 7
+)
+set_tests_properties (${prefix}_Search_Return_Mid_From_Low PROPERTIES
+		PASS_REGULAR_EXPRESSION "2"
+		LABELS "${MODULE}")
+
+add_test(
+		NAME ${prefix}_Search_Return_Mid_From_High
+		COMMAND ${APPLICATION} 5 17 19 20 17
+)
+set_tests_properties (${prefix}_Search_Return_Mid_From_High PROPERTIES
+		PASS_REGULAR_EXPRESSION "1"
+		LABELS "${MODULE}")
