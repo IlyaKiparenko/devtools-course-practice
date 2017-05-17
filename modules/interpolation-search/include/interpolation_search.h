@@ -5,8 +5,8 @@
 
 class InterpolationSearch {
  public:
-  int Search(int toFind, int * sortedArray, int length);
-  bool isArrayValid(int * sortedArray, int length);
+  static int  Search(int toFind, int* sortedArray, int length);
+  static bool isArrayValid(int* sortedArray, int length);
 };
 
 #endif  // MODULES_INTERPOLATION_SEARCH_INCLUDE_INTERPOLATION_SEARCH_H_
