@@ -1,7 +1,8 @@
 // Copyright 2017 Yashkov Vladislav + Kiparenko Ilya
 
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h> 
+#include <limits>
 #include <string>
 #include <vector>
 #include "include/interpolation_search.h"
@@ -16,7 +17,9 @@ const char help_message[] =
 bool parseInt(const char* s, int* result) {
   char* err = 0;
   int64_t i = strtol(s, &err, 0);
-  if (!err[0] && i > INT_MIN && i < INT_MAX) {
+  if (!err[0] && 
+      i > std::numeric_limits<int>::min() && 
+      i < std::numeric_limits<int>::max()) {
     *result = static_cast<int>(i);
     return true;
   }
