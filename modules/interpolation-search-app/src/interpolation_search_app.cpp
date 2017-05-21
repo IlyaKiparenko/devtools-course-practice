@@ -33,12 +33,12 @@ bool InterpolationSearchApp::validateNumberOfArguments(int argc,
 }
 
 int parseInt(const char* arg) {
-  char* end;
-  int64_t value = strtol(arg, &end, 0);
+  char* end = 0;
+  int64_t value = strtol(arg, &end, 10);
 
   if (end[0] ||
-      value < std::numeric_limits<int>::min() ||
-      value > std::numeric_limits<int>::max()) {
+    value < std::numeric_limits<int>::min() ||
+    value > std::numeric_limits<int>::max()) {
     throw std::string("ERROR: Wrong number format! ") + arg;
   }
 
@@ -64,7 +64,7 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
     key = parseInt(argv[length + 1]);
   }
   catch(std::string& str) {
-      return str;
+    return str;
   }
 
   bool isSorted = InterpolationSearch::isArrayValid(&data[0], length);
