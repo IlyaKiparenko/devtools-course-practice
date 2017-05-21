@@ -72,7 +72,6 @@ string InterpolationSearchApp:operator() (int argc, const char** argv) {
 #include <limits>
 #include <string>
 #include <vector>
-#include "include/interpolation_search.h"
 
 InterpolationSearchApp::InterpolationSearchApp() : message_("") {}
 
