@@ -66,11 +66,13 @@ string InterpolationSearchApp:operator() (int argc, const char** argv) {
 #include "include/interpolation_search.h"
 #include "include/interpolation_search_app.h"
 
-#include <stdint.h>
-#include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstdint>
+#include <limits>
 #include <string>
 #include <vector>
-#include <limits>
+#include "include/interpolation_search.h"
 
 InterpolationSearchApp::InterpolationSearchApp() : message_("") {}
 
