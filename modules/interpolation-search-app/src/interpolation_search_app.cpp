@@ -67,6 +67,7 @@ string InterpolationSearchApp:operator() (int argc, const char** argv) {
 #include "include/interpolation_search_app.h"
 
 #include <stdint.h>
+#include <stdlib.h>
 #include <string>
 #include <vector>
 #include <limits>
