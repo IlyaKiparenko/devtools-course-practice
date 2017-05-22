@@ -35,8 +35,10 @@ bool InterpolationSearchApp::validateNumberOfArguments(int argc,
 int parseInt(const char* arg) {
   char* end = 0;
   int64_t value = strtol(arg, &end, 10);
-
-  if (end[0] ||
+  printf("Parse %li [%s][%i] %s\n", (long)value, end, end[0], arg);
+  printf("%i %i\n", std::numeric_limits<int>::min(),
+                    std::numeric_limits<int>::max());
+  if (end[0] != 0 ||
     value < std::numeric_limits<int>::min() ||
     value > std::numeric_limits<int>::max()) {
     throw std::string("ERROR: Wrong number format! ") + arg;
@@ -46,6 +48,11 @@ int parseInt(const char* arg) {
 }
 
 std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
+  printf("Args = ");
+  for (int i = 0; i < argc; i++)
+    printf("[%s] ", argv[i]);
+  printf("\n");
+
   if (!validateNumberOfArguments(argc, argv)) {
     return message_;
   }
@@ -64,6 +71,7 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
     key = parseInt(argv[length + 1]);
   }
   catch(std::string& str) {
+    printf("Throw %s\n", str.c_str());
     return str;
   }
 
