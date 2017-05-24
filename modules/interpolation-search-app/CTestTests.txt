@@ -19,7 +19,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
 	TIMEOUT 100 
-  PASS_REGULAR_EXPRESSION "This is a interpolation search app"
+  PASS_REGULAR_EXPRESSION "This is a interpolation search app.*"
   LABELS "${MODULE}")
 
 add_test(
@@ -28,7 +28,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 	TIMEOUT 100 
-  PASS_REGULAR_EXPRESSION "ERROR: Should be at least 2 arguments"
+  PASS_REGULAR_EXPRESSION "ERROR: Should be at least 2 arguments.*"
   LABELS "${MODULE}")
 
 add_test(

@@ -29,6 +29,7 @@ class InterpolationSearchAppTest : public ::testing::Test {
     int argc = static_cast<int>(args_.size()) + 1;
 
     output_ = app_(argc, argv);
+    printf("[%s]\n", output_.c_str()); 
   }
 
   void Assert(std::string expected) {
