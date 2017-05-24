@@ -3,7 +3,6 @@
 #include "include/interpolation_search.h"
 #include "include/interpolation_search_app.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <cstdint>
 #include <limits>
@@ -35,9 +34,6 @@ bool InterpolationSearchApp::validateNumberOfArguments(int argc,
 int parseInt(const char* arg) {
   char* end = 0;
   int64_t value = strtol(arg, &end, 10);
-  printf("Parse %li [%s][%i] %s\n", (long)value, end, end[0], arg);
-  printf("%i %i\n", std::numeric_limits<int>::min(),
-                    std::numeric_limits<int>::max());
   if (end[0] != 0 ||
     value < std::numeric_limits<int>::min() ||
     value > std::numeric_limits<int>::max()) {
@@ -48,11 +44,6 @@ int parseInt(const char* arg) {
 }
 
 std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
-  printf("Args = ");
-  for (int i = 0; i < argc; i++)
-    printf("[%s] ", argv[i]);
-  printf("\n");
-
   if (!validateNumberOfArguments(argc, argv)) {
     return message_;
   }
@@ -68,7 +59,6 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
     key = parseInt(argv[length + 1]);
   }
   catch(std::string& str) {
-    printf("Throw %s\n", str.c_str());
     return str;
   }
 
@@ -76,10 +66,7 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
   if (!isSorted) {
     return "ERROR: Array is unsorted\n";
   }
-  printf("Sorted Array\n");
   
   int result = InterpolationSearch::Search(key, &data[0], length);
   return "Result = " + std::to_string(result);
-  
-  return "Result = 1\n";
 }

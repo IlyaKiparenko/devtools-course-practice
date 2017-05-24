@@ -14,10 +14,6 @@ using std::string;
 class InterpolationSearchAppTest : public ::testing::Test {
  protected:
   void Act(vector<string> args_) {
-    printf("ActArgs ");
-    for (unsigned int i = 0; i < args_.size(); i++)
-      printf("[%s] ", args_[i].c_str());
-    printf("\n");
     vector<const char*> options;
 
     options.push_back("appname");
@@ -29,7 +25,6 @@ class InterpolationSearchAppTest : public ::testing::Test {
     int argc = static_cast<int>(args_.size()) + 1;
 
     output_ = app_(argc, argv);
-    printf("[%s]\n", output_.c_str()); 
   }
 
   void Assert(std::string expected) {
