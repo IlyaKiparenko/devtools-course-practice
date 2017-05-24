@@ -75,3 +75,19 @@ set_tests_properties (${prefix}_can_Detect_Unsorted_Array PROPERTIES
 	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Array is unsorted.*"
   LABELS "${MODULE}")
+
+add_test(
+  NAME ${prefix}_Search_Return_Missing
+  COMMAND ${APPLICATION} 1 2 3 4
+)
+set_tests_properties (${prefix}_Search_Return_Missing PROPERTIES
+  PASS_REGULAR_EXPRESSION "Result = -1.*"
+  LABELS "${MODULE}")
+
+add_test(
+  NAME ${prefix}_Search_Return_Mid
+  COMMAND ${APPLICATION} 1 2 3 2
+)
+set_tests_properties (${prefix}_Search_Return_Mid PROPERTIES
+  PASS_REGULAR_EXPRESSION "Result = 1.*"
+  LABELS "${MODULE}")

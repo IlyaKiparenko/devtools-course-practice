@@ -80,7 +80,7 @@ TEST_F(InterpolationSearchAppTest, Can_Detect_Unsorted_Array) {
 
   Assert("ERROR: Array is unsorted.*");
 }
-/*
+
 TEST_F(InterpolationSearchAppTest, Can_Return_Missing) {
   vector<string> args = {"1", "2", "3", "4"};
 
@@ -96,4 +96,3 @@ TEST_F(InterpolationSearchAppTest, Can_Return_Mid) {
 
   Assert("Result = 1.*");
 }
-*/
