@@ -14,6 +14,10 @@ using std::string;
 class InterpolationSearchAppTest : public ::testing::Test {
  protected:
   void Act(vector<string> args_) {
+    printf("ActArgs ");
+    for (unsigned int i = 0; i < args_.size(); i++)
+      printf("[%s] ", args_[i].c_str());
+    printf("\n");
     vector<const char*> options;
 
     options.push_back("appname");
@@ -58,6 +62,14 @@ TEST_F(InterpolationSearchAppTest, Can_Detect_Wrong_Number_Format) {
   Act(args);
 
   Assert("ERROR: Wrong number format.*");
+}
+
+TEST_F(InterpolationSearchAppTest, Can_Detect_Unsorted_Array_2) {
+  vector<string> args = {"3", "2", "1"};
+
+  Act(args);
+
+  Assert("ERROR: Array is unsorted.*");
 }
 
 TEST_F(InterpolationSearchAppTest, Can_Detect_Unsorted_Array) {

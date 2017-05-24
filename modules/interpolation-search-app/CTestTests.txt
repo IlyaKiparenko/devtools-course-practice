@@ -10,6 +10,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Run PROPERTIES
+	TIMEOUT 100 
   LABELS "${MODULE}")
 
 add_test(
@@ -17,6 +18,7 @@ add_test(
   COMMAND ${APPLICATION}
 )
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "This is a interpolation search app"
   LABELS "${MODULE}")
 
@@ -25,6 +27,7 @@ add_test(
   COMMAND ${APPLICATION} 1
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Should be at least 2 arguments"
   LABELS "${MODULE}")
 
@@ -33,6 +36,7 @@ add_test(
   COMMAND ${APPLICATION} 1a 1
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_2 PROPERTIES
+	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Wrong number format.*"
   LABELS "${MODULE}")
   
@@ -41,6 +45,7 @@ add_test(
   COMMAND ${APPLICATION} 1 a
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Wrong number format"
   LABELS "${MODULE}")
 
@@ -49,5 +54,6 @@ add_test(
   COMMAND ${APPLICATION} 3 2 1 1
 )
 set_tests_properties (${prefix}_can_Detect_Unsorted_Array PROPERTIES
+	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Array is unsorted"
   LABELS "${MODULE}")
