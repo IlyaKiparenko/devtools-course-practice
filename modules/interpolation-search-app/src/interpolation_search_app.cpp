@@ -77,9 +77,9 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
     return "ERROR: Array is unsorted\n";
   }
   printf("Sorted Array\n");
-  /*
+  
   int result = InterpolationSearch::Search(key, &data[0], length);
   return "Result = " + std::to_string(result);
-  */
+  
   return "Result = 1\n";
 }
