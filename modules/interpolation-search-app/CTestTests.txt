@@ -32,24 +32,6 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
   LABELS "${MODULE}")
 
 add_test(
-  NAME ${prefix}_can_Detect_Wrong_Number_Format_2
-  COMMAND ${APPLICATION} 1a 1
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_2 PROPERTIES
-	TIMEOUT 100 
-  PASS_REGULAR_EXPRESSION "ERROR: Wrong number format.*"
-  LABELS "${MODULE}")
- 
-add_test(
-  NAME ${prefix}_can_Detect_Wrong_Number_Format_3
-  COMMAND ${APPLICATION} a 1
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_3 PROPERTIES
-	TIMEOUT 100 
-  PASS_REGULAR_EXPRESSION "ERROR: Wrong number format.*"
-  LABELS "${MODULE}")
-  
-add_test(
   NAME ${prefix}_can_Detect_Wrong_Number_Format
   COMMAND ${APPLICATION} 1 a
 )
@@ -57,15 +39,6 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
 	TIMEOUT 100 
   PASS_REGULAR_EXPRESSION "ERROR: Wrong number format.*"
   LABELS "${MODULE}")
-
-add_test(
-  NAME ${prefix}_can_Detect_Unsorted_Array_2
-  COMMAND ${APPLICATION} 3 2 2
-)
-set_tests_properties (${prefix}_can_Detect_Unsorted_Array_2 PROPERTIES
-	TIMEOUT 100 
-  PASS_REGULAR_EXPRESSION "ERROR: Array is unsorted.*"
-  LABELS "${MODULE}")  
   
 add_test(
   NAME ${prefix}_can_Detect_Unsorted_Array

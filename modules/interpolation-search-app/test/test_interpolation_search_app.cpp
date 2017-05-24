@@ -60,14 +60,6 @@ TEST_F(InterpolationSearchAppTest, Can_Detect_Wrong_Number_Format) {
   Assert("ERROR: Wrong number format.*");
 }
 
-TEST_F(InterpolationSearchAppTest, Can_Detect_Unsorted_Array_2) {
-  vector<string> args = {"3", "2", "1"};
-
-  Act(args);
-
-  Assert("ERROR: Array is unsorted.*");
-}
-
 TEST_F(InterpolationSearchAppTest, Can_Detect_Unsorted_Array) {
   vector<string> args = {"3", "2", "1", "1"};
 

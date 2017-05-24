@@ -66,7 +66,7 @@ std::string InterpolationSearchApp::operator()(int argc, const char** argv) {
   if (!isSorted) {
     return "ERROR: Array is unsorted\n";
   }
-  
+
   int result = InterpolationSearch::Search(key, &data[0], length);
   return "Result = " + std::to_string(result);
 }

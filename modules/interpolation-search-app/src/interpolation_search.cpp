@@ -23,7 +23,6 @@ int InterpolationSearch::Search(int toFind, int* sortedArray, int length) {
   // if there is no such element
   int low = 0;
   int high = length - 1;
-  int steps = 0;
   while (sortedArray[low] < toFind && sortedArray[high] > toFind) {
     int mid = low + ((toFind - sortedArray[low]) *
       (high - low)) / (sortedArray[high] - sortedArray[low]);
@@ -33,9 +32,6 @@ int InterpolationSearch::Search(int toFind, int* sortedArray, int length) {
       high = mid - 1;
     else
       return mid;
-    steps++;
-    if (steps > 100)
-      return -1;
   }
   if (sortedArray[low] == toFind) {
     return low;
